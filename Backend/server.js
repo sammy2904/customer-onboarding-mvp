@@ -8,8 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ----------------------------------------------------
-// THIS IS THE PART YOU WERE MISSING
+
 app.get("/api/users", async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM users");
@@ -19,9 +18,7 @@ app.get("/api/users", async (req, res) => {
     res.status(500).json("Server error");
   }
 });
-// ----------------------------------------------------
 
-// Register User
 app.post("/register", async (req, res) => {
   try {
     const { name, email, gstin, password } = req.body;
@@ -39,7 +36,6 @@ app.post("/register", async (req, res) => {
   }
 });
 
-// Login User
 app.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
