@@ -5,12 +5,12 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", gstin: "", password: "" });
 
-  // Handle typing in boxes
+  
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // Register Function
+
   const submitRegister = async () => {
     try {
       await axios.post("http://localhost:5000/register", form);
@@ -21,7 +21,6 @@ function App() {
     }
   };
 
-  // Login Function
   const submitLogin = async () => {
     try {
       const res = await axios.post("http://localhost:5000/login", form);
